@@ -1,0 +1,7 @@
+# Ignore import/export files
+*.csv
+*.asc
+*.ascii
+*.txt
+*.xls
+settings.inc.php
