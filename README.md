@@ -61,6 +61,7 @@ Currently this script supports:
 - ASN Bank (www.asnbank.nl)
 - Triodos Bank (www.triodos.nl)
 - Rabobank (www.rabobank.nl)
+- SNS Bank (www.snsbank.nl)
 More banks will be added once I have more details abount their csv format. You can add your
 own bank like this:
 

@@ -19,7 +19,7 @@
 // Account Tracker App'. If not, see http://www.gnu.org/licenses/.
 //
 
-// This class processess the ASNBank export files downloaded from asn.nl and creates
+// This class processess the ASNBank _and_ SNSBank export files and creates
 // a csv file that can be imported to the Account Tracker iPad app.
 
 // we extend this class so we include it first
