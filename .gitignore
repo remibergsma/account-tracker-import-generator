@@ -5,3 +5,5 @@
 *.txt
 *.xls
 settings.inc.php
+ing.settings.inc.php
+.gitignore

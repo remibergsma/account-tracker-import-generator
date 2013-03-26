@@ -1,8 +1,7 @@
 account-tracker-import-generator
 ================================
 
-Generate import file (based on export from Bank Account) for iPad Account Tracker app. Graham Haley wrote this great app and for me to start using it I wrote this import genenerator. It currently supports ASN Bank and Triodos Bank from The Netherlands. Although you can add your own
-bank easily (see below).
+Generate import file (based on export from Bank Account) for iPad Account Tracker app. Graham Haley wrote this great app and for me to start using it I wrote this import genenerator. It currently supports most mayor banks in The Netherlands. Although you can add your own bank easily (see below).
 
 More info on how I use this:
 
@@ -59,6 +58,7 @@ How to add support for your own bank
 
 Currently this script supports:
 - ASN Bank (www.asnbank.nl)
+- ING Bank (www.ing.nl)
 - Triodos Bank (www.triodos.nl)
 - Rabobank (www.rabobank.nl)
 - SNS Bank (www.snsbank.nl)
