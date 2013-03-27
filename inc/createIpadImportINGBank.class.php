@@ -65,7 +65,14 @@ class createIpadImportINGBank extends createIpadImportCore {
 				$export_data['category'] = $this->matchCategory($data[1] . " " . $data[8]); // fields with description, company name etc. Used to match categories.
 				$export_data['notes'] = "Note: " . $data[8] ."\nName: " . $data[1] ."\nAccount: " . $data[3] . "\nCode: " . $data[4] . "\nMy account: " . $data[2]. "\nBij/Af: " . $data[5] . "\nType: " . $data[7]; // All other fields that you want to appear in the notes.
 				$export_data['chequenr'] = ''; // you can leave this empty but it needs to be at least an empty row
-				$export_data['amount'] = $data[6]; // the amount of money: 123,45 with no separators for 1000's: 1234,56
+
+				// ING uses a special field 'Af Bij' to specify a + or - amount
+				if ($data[5] == "Af") {
+					$multiply = -1;
+				} else {
+					$multiply = 1;
+				}
+				$export_data['amount'] = $multiply * $data[6]; // the amount of money: 123,45 with no separators for 1000's: 1234,56
 				$export_data['reconciled'] = 'Y'; // since we are importing from bankstatements this is always Y.
 
 				//
