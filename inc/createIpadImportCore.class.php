@@ -202,6 +202,10 @@ class createIpadImportCore {
 			if(preg_match('/^\[/',$export_data['details'])) {
 				$export_data['category'] = "Internal Transfer";
 			}
+			// Skip lines without a valid account
+			if(!$export_data['account']){
+				continue;
+			}
 			// debug
 			if($this->debug == true) {
 				print_r($data);
