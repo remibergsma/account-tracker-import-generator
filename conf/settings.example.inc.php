@@ -49,6 +49,11 @@ $_SETTING['default_billing_category'] = "Unknown";
 // When you set multiple, transactions between these accounts are detected and configured accordingly.
 $_SETTING['my_account']['0707711122'] = "ASN Account";
 $_SETTING['my_account']['300.03.83.213'] = "Triodos Account";
+$_SETTING['my_account']['1234567'] = "ING Account";
+// ING has savings accounts with same account number as the main account
+// We support them by using the following syntax
+$_SETTING['my_account']['1234567-internetsparen'] = "ING savings account";
+// Note: use the exact product name as used by ING in lower case
 
 // remove duplicate transactions (when both IN/OUT transaction is on file)
 $_SETTING['remove_duplicate_transactions'] = false;

@@ -50,6 +50,18 @@ class createIpadImportINGBank extends createIpadImportCore {
 				$export_data['account'] = $this->matchAccount($data[2]); // field with your account number
 				$export_data['date'] = date("d/m/Y", strtotime($data[0])); // field with date of transaction
 				$export_data['details'] = $this->matchInternalTransfers($data[3]); // field with account number of other party
+
+				// handle ING Bank specific problem
+				// ING has saving accounts with the same account number as the main account :-s
+				// This should't normally be possible: FROM and TO account number equal..
+				if ($data[2] == $data[3]) {
+					// details always in form VAN/NAAR $accountname
+					$replace = array("VAN ","NAAR ");
+					$savings_name = strtolower(str_replace($replace, "", $data[1]));
+					$savings_account = $this->my_account[$data[2] . "-" . $savings_name];
+					$export_data['details'] = "[" . $savings_account . "]";
+				}
+
 				$export_data['category'] = $this->matchCategory($data[1] . " " . $data[8]); // fields with description, company name etc. Used to match categories.
 				$export_data['notes'] = "Note: " . $data[8] ."\nName: " . $data[1] ."\nAccount: " . $data[3] . "\nCode: " . $data[4] . "\nMy account: " . $data[2]. "\nBij/Af: " . $data[5] . "\nType: " . $data[7]; // All other fields that you want to appear in the notes.
 				$export_data['chequenr'] = ''; // you can leave this empty but it needs to be at least an empty row
