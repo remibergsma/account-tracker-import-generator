@@ -50,6 +50,9 @@ $_SETTING['default_billing_category'] = "Unknown";
 $_SETTING['my_account']['0707711122'] = "ASN Account";
 $_SETTING['my_account']['300.03.83.213'] = "Triodos Account";
 
+// remove duplicate transactions (when both IN/OUT transaction is on file)
+$_SETTING['remove_duplicate_transactions'] = false;
+
 // timezone
 $_SETTING['date_default_timezone'] = "Europe/Amsterdam";
 

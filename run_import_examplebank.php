@@ -40,7 +40,8 @@ $asn = new createIpadImportExampleBank (
 				$_SETTING['my_account'],
 				$_SETTING['date_default_timezone'],
 				$_SETTING['default_billing_category'],
-				$_SETTING['debug']
+				$_SETTING['debug'],
+				$_SETTING['remove_duplicate_transactions']
 			);
 
 // process data

@@ -52,6 +52,9 @@ class createIpadImportCore {
 	// bank name
 	protected $bank_name;
 
+	// remove duplicate transactions
+	protected $remove_duplicate_transactions;
+
 	// constructor
 	public function __construct(
 					$bank_name,
@@ -59,7 +62,8 @@ class createIpadImportCore {
 					$my_account,
 					$date_default_timezone = "Europe/Amsterdam",
 					$default_billing_category = "Unknown",
-					$debug=false
+					$debug = false,
+					$remove_duplicate_transactions = true
 				) {
 		// bank name
 		$this->bank_name = $bank_name;
@@ -92,6 +96,9 @@ class createIpadImportCore {
 			return false;
 		}
 		$this->my_account = $my_account;
+
+		// this controls whether or not to remove duplicate transactions (between two accounts you own)
+		$this->remove_duplicate_transactions = $remove_duplicate_transactions;
 	}
 
 	// this function is called from script
@@ -188,7 +195,7 @@ class createIpadImportCore {
 		foreach($this->export_data as $export_data) {
 
 			// Internal transfers: only handle transfer OUT; the corresponding IN transfer is handled automatically by the app
-			if(preg_match('/^\[/',$export_data['details']) && $export_data['amount'] >0) {
+			if(preg_match('/^\[/',$export_data['details']) && $export_data['amount'] >0 && $this->remove_duplicate_transactions==true ) {
 				continue;
 			}
 			// Overrule category when intenal transfer
