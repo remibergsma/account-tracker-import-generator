@@ -56,7 +56,7 @@ $_SETTING['my_account']['1234567-internetsparen'] = "ING savings account";
 // Note: use the exact product name as used by ING in lower case
 
 // remove duplicate transactions (when both IN/OUT transaction is on file)
-$_SETTING['remove_duplicate_transactions'] = false;
+$_SETTING['remove_duplicate_transactions'] = true;
 
 // timezone
 $_SETTING['date_default_timezone'] = "Europe/Amsterdam";
